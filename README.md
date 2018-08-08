@@ -1,5 +1,5 @@
 # Choice Engineering Competition
-![From choice architecture to choice engineering](https://imagebin.ca/v/4BTAiYneNb15)
+![From choice architecture to choice engineering](https://ibin.co/4BTAiYneNb15.png)
 
 The Choice Engineering Competition is an academic competition that invites participants to devise mechanisms that engineer behavior. 
 

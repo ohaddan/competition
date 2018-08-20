@@ -1,0 +1,11 @@
+trial_number, time, schedule_type, schedule_name, is_biased_choice, side_choice, RT, observed_reward, unobserved_reward, biased_reward, unbiased_reward
+0,2018-08-15 03:40:13pm, STATIC, random_9, false, LEFT, 2123, 1, 0, 0, 1
+1,2018-08-15 03:40:17pm, STATIC, random_9, false, LEFT, 3890, 0, 0, 0, 0
+2,2018-08-15 03:40:21pm, STATIC, random_9, false, LEFT, 3960, 0, 0, 0, 0
+3,2018-08-15 03:40:26pm, STATIC, random_9, false, LEFT, 4438, 0, 0, 0, 0
+4,2018-08-15 03:40:30pm, STATIC, random_9, false, LEFT, 4379, 0, 0, 0, 0
+5,2018-08-15 03:40:34pm, STATIC, random_9, true, RIGHT, 4582, 1, 0, 1, 0
+6,2018-08-15 03:40:39pm, STATIC, random_9, true, RIGHT, 4224, 0, 0, 0, 0
+7,2018-08-15 03:40:43pm, STATIC, random_9, false, LEFT, 4176, 0, 0, 0, 0
+8,2018-08-15 03:41:19pm, STATIC, random_9, false, LEFT, 36153, 1, 0, 0, 1
+9,2018-08-15 03:41:24pm, STATIC, random_9, true, RIGHT, 5208, 0, 0, 0, 0

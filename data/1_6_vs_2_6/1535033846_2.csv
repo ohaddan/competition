@@ -1,0 +1,2 @@
+trial_number, time, schedule_type, schedule_name, is_biased_choice, side_choice, RT, observed_reward, unobserved_reward, biased_reward, unbiased_reward
+99,2018-08-23 05:17:26pm, dynamic, 1_6_vs_2_6, false, RIGHT, 4469, , , , 

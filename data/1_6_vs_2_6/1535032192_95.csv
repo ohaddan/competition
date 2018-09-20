@@ -1,0 +1,14 @@
+trial_number, time, schedule_type, schedule_name, is_biased_choice, side_choice, RT, observed_reward, unobserved_reward, biased_reward, unbiased_reward
+0,2018-08-23 04:49:53pm, dynamic, 1_6_vs_2_6, true, LEFT, 1530, 0, 0, 0, 0
+1,2018-08-23 04:49:57pm, dynamic, 1_6_vs_2_6, false, RIGHT, 3288, 0, 0, 0, 0
+2,2018-08-23 04:50:00pm, dynamic, 1_6_vs_2_6, false, RIGHT, 3166, 0, 0, 0, 0
+3,2018-08-23 04:50:03pm, dynamic, 1_6_vs_2_6, false, RIGHT, 2865, 0, 0, 0, 0
+4,2018-08-23 04:50:06pm, dynamic, 1_6_vs_2_6, true, LEFT, 3318, 0, 0, 0, 0
+5,2018-08-23 04:50:09pm, dynamic, 1_6_vs_2_6, true, LEFT, 3137, 0, 0, 0, 0
+6,2018-08-23 04:50:14pm, dynamic, 1_6_vs_2_6, false, RIGHT, 5042, 0, 0, 0, 0
+7,2018-08-23 04:50:17pm, dynamic, 1_6_vs_2_6, true, LEFT, 2932, 0, 0, 0, 0
+8,2018-08-23 04:50:20pm, dynamic, 1_6_vs_2_6, true, LEFT, 3025, 1, 0, 1, 0
+9,2018-08-23 04:50:23pm, dynamic, 1_6_vs_2_6, true, LEFT, 3167, 0, 0, 0, 0
+10,2018-08-23 04:50:30pm, dynamic, 1_6_vs_2_6, true, LEFT, 6283, 1, 0, 1, 0
+11,2018-08-23 04:50:33pm, dynamic, 1_6_vs_2_6, false, RIGHT, 3320, 0, 0, 0, 0
+12,2018-08-23 04:50:37pm, dynamic, 1_6_vs_2_6, true, LEFT, 3770, 0, 0, 0, 0

@@ -215,26 +215,6 @@ def output(target, anti_target):
         print(NO_REWARDS_BOTH_ALTERNATIVES)
 
 ###############################################################################
-# Debug
-# if you want it to output to
-# http://decision-making-lab.com/visual_experiment/cmptn_remote/scripts/display_params.php
-# disable any other prints (specifically the one from "output")
-###############################################################################
-counter = 0
-text_agg = ''
-def debug(txt="hi"):
-    global counter
-    global text_agg
-    counter = counter + 1
-    text_agg = text_agg + " ### " + str(counter) + ":" + str(txt)
-    print(text_agg)
-
-def parse_lst(lst):
-    as_python_lst = lst.strip('[').strip(']').split(',')
-    as_python_elements = [ast.literal_eval(el) for el in as_python_lst]
-    return as_python_elements
-
-###############################################################################
 # Run
 ###############################################################################
 

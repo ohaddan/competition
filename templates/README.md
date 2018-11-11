@@ -18,4 +18,10 @@ Your model will be called with __three command-line arguments__ that you may par
 3. The third input is a list of __previous choices__, where 1's indicate a choice in the target alternative and 0's indicate choice in the anti-target alternative. For example, the list [1, 1, 1, 0, 0, 0] received as the third input indicates that the experiment is currently at its 7'th trial, that on the first three trials the target side was chosen by the subject and that on the last three trials it was not. 
  
 ### Providing output
-Your model should indicate the allocation of rewards for the next trial by printing (to the standard sys.stdout, e.g. using [print]( https://docs.python.org/3/tutorial/inputoutput.html)) a single string in the format of "(T, N)", where both T and N are either the character 1 or 0, T represents the allocation to the target side and N the allocation the non-target side. Hence, your model output should be one of the following four strings "(0, 0)", "(0, 1)", "(1, 0)", "(1, 1)". To prevent formatting issues, you may use the "output" function provided in this file.
+Your model should indicate the allocation of rewards for the next trial by printing (to the standard sys.stdout, e.g. using [print]( https://docs.python.org/3/tutorial/inputoutput.html)) a single string in the format of "(T, N)", where both T and N are either the character 1 or 0, T represents the allocation to the target side and N the allocation the non-target side. 
+
+Hence, __your model's output should be one of the following four__ strings:
+1. "(0, 0)"
+2. "(0, 1)"
+3. "(1, 0)"
+4. "(1, 1)"

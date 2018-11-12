@@ -27,4 +27,6 @@ Hence, __your model's output should be one of the following four__ strings:
 4. "(1, 1)"
 
 ### Code examples and templates 
-This folder contains a [template of code](https://github.com/ohaddan/competition/blob/master/templates/dynamic_template.py) you may use to write your dynamic mechanism. In addition several examples for mechanisms may also be found in this folder.
+This folder contains a [template of code](https://github.com/ohaddan/competition/blob/master/templates/dynamic_template.py) you may use to write your dynamic mechanism. In addition examples for mechanisms may also be found in this folder:
+
+* [WSLS dynamic mechanism](https://github.com/ohaddan/competition/blob/master/templates/dynamic_wsls.py) - an example of a dynamic mechanism which tries to optimize the bias of subjects, assuming they follow the principle of [Win–stay, lose–switch](https://en.wikipedia.org/wiki/Win%E2%80%93stay,_lose%E2%80%93switch).

@@ -3,7 +3,7 @@ Each of the folders **random<sub>i</sub>** (*i ∈ {0..19}*) contains the respon
 
  - **File name** has no particular meaning. CSV and JSON files baring the same name have the same data (in different format).
  - **Each file represents the choices of s single subject** to a single reward schedule with 100 trials. 
-   - Incomplete experiments (when subjects leave the experiment prior to completing the 100 trials) are also included in these data folder (but such data will _not_ be included in the analysis of the competition).
+   - Incomplete experiments (when subjects leave the experiment prior to completing the 100 trials) ~~are also included in these data folder (but such data will _not_ be included in the analysis of the competition).~~ Should be shortly removed from the dataset.
 - **Files structure** - each line in the data files represent a single trial. The available data (columns\headers)  for each trial are:
 	- `trial_number`- Trial's ordinal. First trial is numbered 0.
 	- `time` - time of making the choice in current trial (GMT‎+3).

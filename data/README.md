@@ -1,5 +1,5 @@
 # Choice Engineering Competition - Data
-Each of the folders **random_<sub>i</sub>*** (*i ∈ {0..19}*) contains the response of at least 20 subjects to the respective reward sequence found in the [static_sequences](https://github.com/ohaddan/competition/tree/master/static_sequences) folder. 
+Each of the folders **random<sub>i</sub>*** (*i ∈ {0..19}*) contains the response of at least 20 subjects to the respective reward sequence found in the [static_sequences](https://github.com/ohaddan/competition/tree/master/static_sequences) folder. 
 
  - **File name** has no particular meaning. CSV and JSON files baring the same name have the same data (in different format).
  - **Each file represents the choices of s single subject** to a single reward schedule with 100 trials. 

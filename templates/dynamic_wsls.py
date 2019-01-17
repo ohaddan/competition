@@ -92,9 +92,9 @@ def allocate(target_allocations, anti_target_allocations, is_target_choices):
     principle, if previous choice yielded a reward (“win”) the subject will
     choose in the next trial the same alternative chosen in previous trial
     (“stay”). If, however, the previous choice did not yield a reward (“lose”)
-    tean the subject will choose in the next trial the other alternative
-    (“switch”). As an initial condition, it is assumed that subjects randomly
-    sample the two alternatives.
+    then the subject will choose in the next trial the other alternative
+    (“switch”). As an initial condition, the model assumes that subjects in 
+    the first trial, subject randomly choose the two alternatives.
     Assuming the subject operate by these principles, the bias induction
     mechanism follows the following optimization policy:
         1.	To assure that subjects choose the “target” alternative in the

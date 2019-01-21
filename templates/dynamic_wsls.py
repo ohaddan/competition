@@ -86,6 +86,45 @@ def allocate(target_allocations, anti_target_allocations, is_target_choices):
                 whether a reward should be allocated to the target side,
                 and the second whether a reward should be allocated to the
                 anti-target side.
+
+    The allocation algorithm presented in this function assumes that subjects
+    operate by the principle of “Win-stay, Lose-switch”. According to this
+    principle, if previous choice yielded a reward (“win”) the subject will
+    choose in the next trial the same alternative chosen in previous trial
+    (“stay”). If, however, the previous choice did not yield a reward (“lose”)
+    then the subject will choose in the next trial the other alternative
+    (“switch”). As an initial condition, the model assumes that subjects in 
+    the first trial, subject randomly choose the two alternatives.
+    Assuming the subject operate by these principles, the bias induction
+    mechanism follows the following optimization policy:
+        1.	To assure that subjects choose the “target” alternative in the
+            third trial, in the first two trials a reward is assigned to the
+            target alternative and no reward is assigned to the other
+            alternative.
+        2.	In consecutive trials:
+            a.	If last choice was in the target alternative, and it was
+                rewarded or if it was in the anti-target alternative and it was
+                not reward, then subject is expected to choose the target
+                alternative again (“stay” or “switch” respectively). Hence a
+                reward is assigned to the target alternative (to make the
+                subject “stay” in the target alternative in next trial). In
+                addition, since the anti-target alternative is not expected to
+                be chosen, a reward is assigned to the anti-target alternative
+                to minimize the association of future trials in target
+                alternative with rewards.
+            b.	If last choice was in the anti-target side and it was rewarded,
+                or if it was in the target side and it was not rewarded than
+                subject is expected to choose the anti-target alternative in
+                current trial. To make the subject “switch”, a reward is not
+                assigned to the anti-target alternative. In addition, since the
+                target alternative is not expected to be chosen, a reward is
+                not “wasted” on the alternative and is not assigned to it
+                either.
+
+    Before returning the indicated allocations, the desired output is passed
+    through the “constrain” function to verify that the global constraints of
+    the reward schedule are held.
+
     """
     trial = len(target_allocations)
     # In first two trials put rewards in the target side only
@@ -111,7 +150,7 @@ def allocate(target_allocations, anti_target_allocations, is_target_choices):
     # Previous choice was of the anti-target side
     else:
         # If the choice yielded a reward
-        if anti_target_allocations[-1] == REWARD:
+        if anti_target_alternative[-1] == REWARD:
             # The agent is likely to choose the anti-target again, so don't put
             # rewards there to discourage such choices. Also, don't put rewards
             # on the target side so as not to waste them.
@@ -162,10 +201,10 @@ def constrain(previous_allocation, current_allocation):
 ###############################################################################
 # Template Infrastructure - Do not change
 ###############################################################################
-REWARDS_BOTH_ALTERNATIVES = '1, 1'
-REWARD_TARGET_ONLY = '1, 0'
-REWARD_ANTI_TARGET_ONLY = '0, 1'
-NO_REWARDS_BOTH_ALTERNATIVES = '0, 0'
+REWARDS_BOTH_ALTERNATIVES = '(1, 1)'
+REWARD_TARGET_ONLY = '(1, 0)'
+REWARD_ANTI_TARGET_ONLY = '(0, 1)'
+NO_REWARDS_BOTH_ALTERNATIVES = '(0, 0)'
 
 
 def parse_input():
@@ -178,13 +217,10 @@ def parse_input():
         rewards allocation to anti-target alternative: {1=reward, 0=no reward},
         choices: {1=choice in target alternative, 0=choice in anti-target})
     """
-    if sys.argv[1]=="[]": #This is first trial, don't try parsing:
-        return [], [], []
-    else:
-        target_allocations = parse_lst(sys.argv[1])
-        anti_target_allocations = parse_lst(sys.argv[2])
-        is_target_choices = parse_lst(sys.argv[3])
-        return target_allocations, anti_target_allocations, is_target_choices
+    target_allocations = ast.literal_eval(sys.argv[1])
+    anti_target_allocations = ast.literal_eval(sys.argv[2])
+    is_target_choices = ast.literal_eval(sys.argv[3])
+    return target_allocations, anti_target_allocations, is_target_choices
 
 
 def output(target, anti_target):
@@ -214,31 +250,5 @@ def output(target, anti_target):
     elif not target and not anti_target:
         print(NO_REWARDS_BOTH_ALTERNATIVES)
 
-###############################################################################
-# Debug
-# if you want it to output to
-# http://decision-making-lab.com/visual_experiment/cmptn_remote/scripts/display_params.php
-# disable any other prints (specifically the one from "output")
-###############################################################################
-counter = 0
-text_agg = ''
-def debug(txt="hi"):
-    global counter
-    global text_agg
-    counter = counter + 1
-    text_agg = text_agg + " ### " + str(counter) + ":" + str(txt)
-    print(text_agg)
-
-def parse_lst(lst):
-    as_python_lst = lst.strip('[').strip(']').split(',')
-    as_python_elements = [ast.literal_eval(el) for el in as_python_lst]
-    return as_python_elements
-
-###############################################################################
-# Run
-###############################################################################
-
 if __name__ == '__main__':
-    input = parse_input()
-    allocation = allocate(*input)
-    output(*allocation)
+    output(*allocate(*parse_input()))

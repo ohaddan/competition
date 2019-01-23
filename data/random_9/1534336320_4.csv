@@ -1,2 +1,0 @@
-trial_number, time, schedule_type, schedule_name, is_biased_choice, side_choice, RT, observed_reward, unobserved_reward, biased_reward, unbiased_reward
-99,2018-08-15 03:32:00pm, STATIC, random_9, false, RIGHT, 3088, 0, 0, 0, 0

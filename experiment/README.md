@@ -1,9 +1,8 @@
-_Competition website [here](https://sites.google.com/view/cec19/home?authuser=0)_
+# Experiment flow
 
-#Experiment flow
 1. [instructions/welcome.html](http://decision-making-lab.com/visual_experiment/cmptn_remote/instructions/welcome.html) -
 Gives subject the instructions for the experiment.   
-1. [main.php](http://decision-making-lab.com/visual_experiment/cmptn_remote/main.php) - The main page which
+1. [main.php](https://github.com/ohaddan/competition/blob/master/experiment/main.php) - The main page which
 manages the experiment. The page defines:
     - PHP session parameters:
         - User Id
@@ -13,9 +12,9 @@ manages the experiment. The page defines:
         - Trials
     - The structure of the page (e.g. buttons) with hooks to the logic initiated when either of the buttons 
     is chosen.
-1.  [scripts/code.js]() - manages the game. The flow of the experiment is as follows:
+1.  [scripts/code.js](https://github.com/ohaddan/competition/blob/master/experiment/scripts/code.js) - manages the game. The flow of the experiment is as follows:
     
-    - `left_button_clicked()` or `right_button_clicked()` are triggered by the respective buttons from [main.php]().
+    - `left_button_clicked()` or `right_button_clicked()` are triggered by the respective buttons from [main.php](https://github.com/ohaddan/competition/blob/master/experiment/main.php).
         1. Call `button_clicked()` which:
             - Registers reaction time (RT)
             - Hides the choice-buttons for a specific time (_`FEEDBACK_TIME = 1500ms`_), after which a button 
@@ -24,5 +23,5 @@ manages the experiment. The page defines:
             of each trial).
             -   Updates the trial counter on screen.
         1. Call `get_current_trial_rewards(side_chosen)` from [backend_interaction.js]() (see below).
-1.  [scripts/backend_interaction.js]() - manages writing the data of current trial to backend and receiving back 
+1.  [scripts/backend_interaction.js](https://github.com/ohaddan/competition/blob/master/experiment/scripts/backend_interaction.js) - manages writing the data of current trial to backend and receiving back 
 the reward associated with current choice.  

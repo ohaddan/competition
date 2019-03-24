@@ -1,9 +1,15 @@
 # Choice Engineering Competition - Data
+This folder contains data of two types of reward schedule: 1. Bandit task. 2. Schedules that comply with the competition's   constraints.
+
+## [Bandit task](https://github.com/ohaddan/competition/tree/master/data/1_6_vs_2_6)
+Subjects were tested in a bandit task, in which a reward was assigned to alternative 1 in 33/100 trials (randomly selected) and to alternative 2 in 17/100 of the trials. (randomly selected). Note that this data is useful for quantifying learning but the reward schedule does not comply with the rules of the competition.  
+
+## 20 random schedules, 20 subjects each
 Each of the folders **random<sub>i</sub>** (*i ∈ {0..19}*) contains the response of at least 20 subjects to the respective reward sequence found in the [static_sequences](https://github.com/ohaddan/competition/tree/master/static_sequences) folder. 
 
- - **File name** has no particular meaning. CSV and JSON files baring the same name have the same data (in different format).
+## Data files structure
+ - **File name** has no particular meaning. 
  - **Each file represents the choices of s single subject** to a single reward schedule with 100 trials. 
-   - Incomplete experiments (when subjects leave the experiment prior to completing the 100 trials) ~~are also included in these data folder (but such data will _not_ be included in the analysis of the competition).~~ ~~Should be shortly removed from the dataset~~ are not included in this dataset.
 - **Files structure** - each line in a data file represent a single trial. The available data (columns\headers)  for each trial are:
 	- `trial_number`- Trial's ordinal. First trial is numbered 0.
 	- `time` - time of making the choice in current trial (GMT‎+3).

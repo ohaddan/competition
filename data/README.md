@@ -2,7 +2,7 @@
 This folder contains data of two types of reward schedule: 1. Bandit task. 2. Schedules that comply with the competition's   constraints.
 
 ## [Bandit task](https://github.com/ohaddan/competition/tree/master/data/1_6_vs_2_6)
-Subjects were tested in a bandit task, in which a reward was assigned to alternative 1 in 33/100 trials (randomly selected) and to alternative 2 in 17/100 of the trials. (randomly selected). Note that this data is useful for quantifying learning but the reward schedule does not comply with the rules of the competition.  
+Subjects were tested in a bandit task, in which a reward was assigned to alternative 1 in 33/100 trials (randomly selected) and to alternative 2 in 17/100 of the trials. (randomly selected). Note that this data is useful for quantifying learning but the reward schedule does not comply with the rules of the competition.  Data is in __*1_6_vs_2_6*__ folder.  
 
 ## 20 random schedules, 20 subjects each
 Each of the folders **random<sub>i</sub>** (*i ∈ {0..19}*) contains the response of at least 20 subjects to the respective reward sequence found in the [static_sequences](https://github.com/ohaddan/competition/tree/master/static_sequences) folder. 

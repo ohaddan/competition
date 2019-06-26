@@ -1,4 +1,4 @@
-Each of the python files in this directory describes one of the random sequences applied to a group of subjects in the experiment of the Choice Engineering Competition (more details on how and why these sequences were generated [here](https://sites.google.com/view/cec19/Data?authuser=0)). 
+Each of the python files in this directory describes one of the random sequences applied to a group of subjects in the experiment of the Choice Engineering Competition (more details on how and why these sequences were generated [here](https://sites.google.com/view/cec19/Data)). 
 
 Each of the Python scripts contains two lines: 
 The first line defines "bias_target", a list of rewards assigned to the target alternative.

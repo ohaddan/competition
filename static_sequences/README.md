@@ -1,4 +1,4 @@
-#Static sequences
+# Static sequences
 
 Each of the python files in this directory describes one of the random sequences applied to a group of subjects in the experiment of the Choice Engineering Competition (more details on how and why these sequences were generated [here](https://sites.google.com/view/cec19/Data)). 
 

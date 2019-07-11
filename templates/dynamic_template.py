@@ -1,27 +1,27 @@
 # This file provides an explanation and example usage of a dynamic allocation
-# file for the bias induction competition. For more details on the competition,
+# file for the bchoice engineering competition. For more details on the competition,
 # see [here](http://decision-making-lab.com/competition/index.html)
 
 ###############################################################################
-# What is a dynamic allocation model?
+# What is dynamic allocation?
 ###############################################################################
-# A dynamic allocation model is used to determine the rewards in a single trial
+#  A dynamic allocation model is used to determine the rewards in a single trial
 #  for a single subject, participating in the experiment of The Choice
 #  Engineering Competition. The allocation mechanism should indicate whether or
-#  not to allocate  a reward for either of the experiment’s two alternatives.
+#  not to allocate a reward for both of the experiment’s two alternatives.
 #  The rewards available for allocation are binary (either 1 or 0) and are
 #  constrained such that during the 100 trials of the experiment, each of the
 #  alternatives should be associated with exactly 25 rewards (i.e. 1's, and
-#  75 should be associated with 0's). The input to the dynamic allocation model
-#  is current experiment's history, namely previous allocations and respective
-#  choices, and its output is allocation of rewards for the next trial.
+#  75 should be associated with 0's). The input to the dynamic allocation mechanism
+#  is current experiment's history, namely previous reward allocations and
+#  previous choices, and its output is allocation of rewards for the next trial.
 #
-# The goal of the competition, and hence of the dynamic allocation model, is to
+# The goal of the competition and the dynamic allocation model is to
 #  generate an allocation mechanism that would maximize the choices of humans
 #  in one specific alternative, termed the "target alternative". In the
 #  competition’s experiment, the target alternative will be placed randomly
 #  either on the left or the right part of the participant's screen. However,
-#  in the output of the allocation model, the target alternative should be
+#  in the output of the allocation mechanism, the target alternative should be
 #  always placed first (see below).
 
 ###############################################################################
@@ -36,7 +36,7 @@
 #  by the dynamic allocation mechanism is actually revealed to the subject,
 #  according to her choice.
 #
-# A. Receiving input: your model will be called with three command-line
+# A. Receiving input: your function will be called with three command-line
 #  arguments that you may parse
 # e.g. with [sys.argv](https://docs.python.org/3.7/library/sys.html#sys.argv)).
 #     1. The first input is a list of previous allocations to the target
@@ -59,7 +59,7 @@
 #      received as the third input indicates that the experiment is currently
 #      at its 7'th trial, that on the first three trials the target side was
 #      chosen by the subject and that on the last three trials it was not.
-# B. Providing output - Your model should indicate the allocation of rewards
+# B. Providing output - Your function should indicate the allocation of rewards
 #  by printing (to the standard sys.stdout, e.g. using
 #  [print]( https://docs.python.org/3/library/functions.html#print)) a single
 #  string in the format of "(T, N)", where both T and N are either the

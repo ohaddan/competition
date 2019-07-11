@@ -27,7 +27,7 @@
 # In the course of an experiment, your dynamic allocation model would be called
 #  repeatedly, once for every trial, and the allocation provided by your model
 #  will be revealed to the participant, according to her choice.
-#  At each trial t, your program will be called with the hisotry of the users 
+#  At each trial t, your program will be called with the history of the user's 
 #   actions and past rewards in trials 1..(t-1)
 #
 # A. Receiving input: your model will be called with three command-line arguments

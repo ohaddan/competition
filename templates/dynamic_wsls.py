@@ -1,21 +1,20 @@
 # This file provides an explanation and example usage of a dynamic allocation
-# file for the bias induction competition. For more details on the competition,
+# file for the choice engineering competition. For more details on the competition,
 #  see [here](http://decision-making-lab.com/competition/index.html)
 
 ###############################################################################
 # What is a dynamic allocation model?
 ###############################################################################
-# A dynamic allocation model is used to determine the rewards in a single trial
-#  of an experiment run as part of the bias induction competition. This output
-#  should indicate the allocation of rewards for the two alternatives used in
-#  the experiment in a specific trial. The rewards available for allocation are
+# A dynamic allocation model is used to determine the rewards for the 
+#  alternatives in a single trial of the competion's experiment. 
+#  The rewards available for allocation are
 #  binary (either 1 or 0) and are constrained such that during the 100 trials
 #  of the experiment, each of the alternatives should be allocated exactly 25
-#  rewards (i.e. 1's, and 75 should be allocated with 0's). The input of the
+#  rewards (i.e. 25 1's, and 75 trials should be allocated with 0's). The input of the
 #  dynamic allocation model is current experiment's history, namely previous
-#  allocations and their respective choices.
+#  allocations choices.
 #
-# The goal of the competition, and the dynamic allocation model, is to design
+# The goal of the competition is to design
 # an allocation mechanism that would maximize the choices in one specific
 # alternative, termed the "target alternative". In the experiment, the target
 # alternative will be placed randomly either on the left or the right part of
@@ -26,10 +25,12 @@
 # How should a dynamic allocation model file be used
 ###############################################################################
 # In the course of an experiment, your dynamic allocation model would be called
-#  repeatedly, once for every trial, and the allocation provided by the
+#  repeatedly, once for every trial, and the allocation provided by your model
 #  will be revealed to the participant, according to her choice.
+#  At each trial t, your program will be called with the hisotry of the users 
+#   actions and past rewards in trials 1..(t-1)
 #
-# A. Receiving input: your model will be called with two command-line arguments
+# A. Receiving input: your model will be called with three command-line arguments
 #  that you may parse
 # e.g. with [sys.argv](https://docs.python.org/3.7/library/sys.html#sys.argv)).
 #     1. The first input is a list of previous allocations to the target
@@ -57,7 +58,7 @@
 #  T represents the allocation to the target side and N the allocation the
 #  non-target side.
 # Hence, your model output should be one of the following four strings
-# "(0, 0)",  "(0, 1)",  "(1, 0)",  "(1, 1)". To prevent formatting issues,
+# "(0, 0)",  "(0, 1)",  "(1, 0)",  "(1, 1)". To mitigate formatting issues,
 # you may use the "output" function provided in this file.
 
 ###############################################################################

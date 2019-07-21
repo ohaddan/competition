@@ -1,16 +1,21 @@
 <?php
 session_start();
-/////////////////////////////////////////////////////////////////////////////////
-// Get current trial's data
-/////////////////////////////////////////////////////////////////////////////////
-$is_biased_side = $_SESSION[$biased_side]==$_GET["side"];
-$is_biased_choice = $is_biased_side ? 'True' : 'False';
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Last update: 21.7.2019
+//
+// Thanks to Amir Dezfouli for his help in improving this code.
+//
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-array_push($_SESSION['is_bias_choice'],$is_biased_choice);
-
+/////////////////////////////////////////////////////////////////////////////////
+// Allocate rewards to next trial
+/////////////////////////////////////////////////////////////////////////////////
 $result_string = "";
+    /////////////////////////////////////////////////////////////////////////////
+    // DYNAMIC Allocation of rewards to next trial
+    /////////////////////////////////////////////////////////////////////////////
 $current_biased_reward = $current_unbiased_reward = NULL;
-if($_SESSION['schedule_type'] == "dynamic"){
+if($_SESSION['schedule_type'] == "DYNAMIC"){ //Game is dynamic
     $run_python_command = 'python ../sequences/dynamic/'. $_SESSION['schedule_name'] . '.py '
         . json_encode($_SESSION['bias_rewards']) . ' '
         . json_encode($_SESSION['unbias_rewards']) . ' '
@@ -21,6 +26,9 @@ if($_SESSION['schedule_type'] == "dynamic"){
     $current_biased_reward = $result_array[0];
     $current_unbiased_reward = $result_array[1];
 }
+    /////////////////////////////////////////////////////////////////////////////
+    // STATIC - Allocation of rewards to next trial
+    /////////////////////////////////////////////////////////////////////////////
 else{ // Game is static
     include '../sequences/static/' . $_SESSION['schedule_name'] . '.php';
     $current_biased_reward = $biased_rewards[$_SESSION['trial_number']];
@@ -37,6 +45,13 @@ else{
 array_push($_SESSION['bias_rewards'],$current_biased_reward);
 array_push($_SESSION['unbias_rewards'],$current_unbiased_reward);
 
+/////////////////////////////////////////////////////////////////////////////////
+// Get choice in current trial
+/////////////////////////////////////////////////////////////////////////////////
+$is_biased_side = $_SESSION[$biased_side]==$_GET["side"];
+$is_biased_choice = $is_biased_side ? 'True' : 'False';
+
+array_push($_SESSION['is_bias_choice'],$is_biased_choice);
 
 /////////////////////////////////////////////////////////////////////////////////
 // Write current trial's data
@@ -47,7 +62,6 @@ function remove_last_char_from_file($file_name){
     ftruncate($fh, $stat['size']-1);
     fclose($fh);
 }
-
 
 function write_trial_data_csv($is_biased_choice, $current_reward, $current_unobserved_reward, $path){
     $file_name = $path . $_SESSION['user_id'] . '.csv';

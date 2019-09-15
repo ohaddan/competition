@@ -71,7 +71,7 @@ $_SESSION["total_reward"] = 0;
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <div class="col-sm-2 sidenav justify_text">
+        <div class="col-sm-2 sidenav justify_text" id="please_choose_text">
             <br>
             <p>
                 Please choose between the two buttons.

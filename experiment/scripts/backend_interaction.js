@@ -11,4 +11,7 @@ function get_current_trial_rewards(side_chosen) {
 
 function rewards_arrived(reward){
     show_feedback(Number(reward));
+    if (trial_number==NUMBER_OF_TRIALS){
+        go_to_goodbye_page();
+    }
 }

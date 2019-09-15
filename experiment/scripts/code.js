@@ -25,6 +25,8 @@ var IMG_WIDTH = "30%";
 var IMG_HEIGHT = "50px";
 var IMG_WIDTH = "50px";
 
+var should_feedback_displayed_now = false;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Helper functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +59,7 @@ function create_image_node(image_url) {
 }
 function create_enabler_button(){
     /**
-     * Enabler button at the bottom of the screen, on which subjects should choose to move forward between trials.
+     * Enabler button at the bottom of the screen, on which subjects should click to move forward between trials.
      */
     var btn = document.createElement("BUTTON");
     btn.setAttribute("class", "btn btn-default");
@@ -209,12 +211,13 @@ function button_clicked(){
     /**
      * Procedures to execute each time either of the buttons is pressed
      */
+    should_feedback_displayed_now = true;
     current_click_time = Date.now();
     RT = current_click_time - prev_click_time;
     choice_intervals.push(current_click_time - prev_click_time);
     prev_click_time = current_click_time;
-    if (trial_number==NUMBER_OF_TRIALS-1){ //-1 because trial_number is advanced after this function
-        go_to_goodbye_page();
+    if (trial_number==NUMBER_OF_TRIALS){ //-1 because trial_number is advanced after this function
+        show_goodbye_message();
     }
     else {
         hide_all_buttons();
@@ -270,7 +273,6 @@ function add_smiley_to_screen(){
     var smiley_img = create_image_node('media/positive_feedback.png')
     smiley_img.setAttribute("width", "40px");
     smiley_img.setAttribute("height", "40px");
-
     reward_holder.appendChild(smiley_img);
 }
 
@@ -287,20 +289,39 @@ function show_feedback(current_feedback){
     else{
         display_image = feedback_no_img;
     }
-    feedback_display_father.appendChild(display_image);
+    if (should_feedback_displayed_now) {
+        feedback_display_father.appendChild(display_image);
+    }
+//    display_image.style.visibility = "visible";
 }
 
 function hide_feedback(){
     /**
      * Remove current smiley
      */
-    feedback_display_father.removeChild(display_image);
+    should_feedback_displayed_now = false;
+    // display_image.style.visibility = "hidden";
+    if (feedback_display_father.contains(display_image)){
+        feedback_display_father.removeChild(display_image);
+    }
+    else{ //To synchronize elements, if presentation was not updated yet, wait for it 20ms and try again.
+        setTimeout(20, hide_feedback);
+    }
 }
 /** Feedback management -- end**/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Report results
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function show_goodbye_message(){
+    /**
+     * Display a message informing the game has ended (before response comes
+     * back from the server and the page navigates to the thank_you.php page
+     */
+    let instructions_text_div = document.getElementById("please_choose_text");
+    instructions_text_div.innerHTML = "The game has ended. <br> You will shortly be moved to the next page.";
+}
 
 function go_to_goodbye_page(){
     /**

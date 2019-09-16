@@ -7,6 +7,9 @@ session_start();
 // Assign worker ID in some way (here: currentTime_randNumber
 $_SESSION['user_id'] = strval(time()) . "_" . strval(rand(1, 100));
 
+$biased_side = 'biased_side';
+$unbiased_side = 'unbiased_side
+
 // Rewards and choices loggers
 $_SESSION['is_bias_choice'] = array();
 $_SESSION['bias_rewards'] = array();

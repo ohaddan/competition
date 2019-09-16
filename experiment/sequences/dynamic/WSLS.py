@@ -151,7 +151,6 @@ def constrain(previous_allocation, current_allocation):
     # rewards should be allocated
     current_trial_number = len(previous_allocation)
     remaining_trials = NUMBER_OF_TRIALS - current_trial_number
-    remaining_rewards = allocated_rewards
     if remaining_trials == (TOTAL_REWARDS-allocated_rewards):
         return 1
 

@@ -3,7 +3,7 @@ session_start();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Last update: 21.7.2019
 //
-// Thanks to Amir Dezfouli for his help in improving this code.
+// Thanks to Amir Dezfouli and Tsahi Asher for their help in improving this code.
 //
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -15,8 +15,6 @@ $unbiased_side = 'unbiased_side';
 /////////////////////////////////////////////////////////////////////////////////
 $is_biased_side = $_SESSION[$biased_side]==$_GET["side"];
 $is_biased_choice = $is_biased_side ? 'True' : 'False';
-
-array_push($_SESSION['is_bias_choice'],$is_biased_choice);
 
 /////////////////////////////////////////////////////////////////////////////////
 // Allocate rewards to next trial
@@ -59,6 +57,7 @@ else{
 }
 array_push($_SESSION['bias_rewards'],$current_biased_reward);
 array_push($_SESSION['unbias_rewards'],$current_unbiased_reward);
+array_push($_SESSION['is_bias_choice'],$is_biased_choice);
 
 /////////////////////////////////////////////////////////////////////////////////
 // Write current trial's data

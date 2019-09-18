@@ -8,7 +8,7 @@ session_start();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $biased_side = 'biased_side';
-$unbiased_side = 'unbiased_side
+$unbiased_side = 'unbiased_side';
 
 /////////////////////////////////////////////////////////////////////////////////
 // Get choice in current trial
@@ -26,6 +26,10 @@ $result_string = "";
     // DYNAMIC Allocation of rewards to next trial
     /////////////////////////////////////////////////////////////////////////////
 $current_biased_reward = $current_unbiased_reward = NULL;
+// The name of the dynamic schedule should be set in the session parameter, e.g.:
+//       $_SESSION['schedule_name'] = "my_dynamic_model";
+// The name should refer to a python file that exists in sequences/dynamic folder
+// A good place for this definition is at main.php
 if($_SESSION['schedule_type'] == "DYNAMIC"){ //Game is dynamic
     $run_python_command = 'python ../sequences/dynamic/'. $_SESSION['schedule_name'] . '.py '
         . json_encode($_SESSION['bias_rewards']) . ' '

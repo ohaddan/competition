@@ -2,6 +2,7 @@
 # file for the bchoice engineering competition. For more details on the competition,
 # see [here](http://decision-making-lab.com/competition/index.html)
 
+# Thanks to Oren Amsalem for his help in improving this code.
 ###############################################################################
 # What is dynamic allocation?
 ###############################################################################

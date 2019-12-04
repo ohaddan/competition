@@ -169,6 +169,11 @@ def output(target, anti_target):
     elif not target and not anti_target:
         print(NO_REWARDS_BOTH_ALTERNATIVES)
 
+def parse_lst(lst):
+    as_python_lst = lst.strip('[').strip(']').split(',')
+    as_python_elements = [ast.literal_eval(el) for el in as_python_lst]
+    return as_python_elements
+
 ###############################################################################
 # Run
 ###############################################################################
